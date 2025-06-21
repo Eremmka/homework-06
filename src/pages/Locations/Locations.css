@@ -1,4 +1,4 @@
-.firstSection-locations{
+.first-section-locations{
   height: 100%;
   width: 100%;
   background-color: black;
@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
 }
-.firstSection-locations h1{
+.first-section-locations h1{
   margin-bottom: 1rem;
 }
 .locations-card{
@@ -31,7 +31,7 @@
 .locations-card h1{
   margin-bottom: 1rem;
 }
-.locationsSectionGrid{
+.locations-section-grid{
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 1.5rem;

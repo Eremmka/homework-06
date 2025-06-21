@@ -1,4 +1,4 @@
-.infoComponent{
+.info-component{
   border-top: 0.2rem solid rgb(160, 247, 135);
   background-color: black;
   color: black;
@@ -9,7 +9,7 @@
   flex-direction: column;
   padding: 1rem;
 }
-.infoModalWindow-infoCard{
+.info-modal-window__infoCard{
   background-color: rgba(98, 247, 255, 0.667);
   border-radius: 1rem;
   padding: 1rem;

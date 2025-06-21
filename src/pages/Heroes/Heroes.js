@@ -9,9 +9,9 @@ export default function Heroes() {
     </div>
   }
   return(
-    <section className="firstSection-heroes">
+    <section className="first-section-heroes">
       <h1>Герои Мультфильма</h1>
-      <div className='heroesSectionGrid'>
+      <div className='heroes-section-grid'>
         {
           heroesData.map(hero => (
             <Link to={`${hero.id}`} key={hero.id}>

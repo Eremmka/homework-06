@@ -1,13 +1,13 @@
 import './Home.css'
-import home_picture from '../../pictures/picture_home.png'
+import home_picture from '../../assets/picture_home.png'
 
 export default function Home() {
   
   return(
-    <section className="firstSection-home">
+    <section className="first-section-home">
       <h1>Добро пожаловать в безумный мультивселенский хаос!</h1>
       <img className='home_picture' src={home_picture} alt='home_picture' />
-      <div className='secondDiv-home'>
+      <div className='second__div-home'>
         <h2>Рик и Морти — это не просто мультфильм, это портал в мир бесконечных приключений, научного безумия и абсурдного юмора!</h2>
 
         <h3>

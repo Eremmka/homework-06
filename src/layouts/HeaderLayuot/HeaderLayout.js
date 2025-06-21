@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom'
-import logo from '../pictures/Logo.png'
+import logo from '../../assets/Logo.png'
 
 export function HeaderLayout() {
   return(

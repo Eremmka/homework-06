@@ -22,8 +22,8 @@ export default function InfoComponent({ category }) {
 
   if (!contentData) {
     return (
-      <div className="infoComponent">
-        <div className="infoModalWindow-infoCard error">
+      <div className="info-component">
+        <div>
           <p>Данные не найдены</p>
         </div>
       </div>
@@ -31,8 +31,8 @@ export default function InfoComponent({ category }) {
   }
 
   return (
-    <div className="infoComponent">
-      <div className="infoModalWindow-infoCard">
+    <div className="info-component">
+      <div className="info-modal-window__infoCard">
         <h1>{contentData.name}</h1>
         <h2>Номер: {contentData.id}</h2>
 

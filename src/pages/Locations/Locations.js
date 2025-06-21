@@ -6,9 +6,9 @@ export default function Episodes() {
   
   
   return(
-    <section className='firstSection-locations'>
+    <section className='first-section-locations'>
       <h1>Локации Мультфильма</h1>
-      <div className='locationsSectionGrid'>
+      <div className='locations-section-grid'>
         {
           locationsData.map(location => (
               <Link to={`${location.id}`} key={location.id}>

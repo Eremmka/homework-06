@@ -1,4 +1,4 @@
-.firstSection-episodes{
+.first-section-episodes{
   height: 100%;
   width: 100%;
   background-color: black;
@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
 }
-.firstSection-episodes h1{
+.first-section-episodes h1{
   margin-bottom: 1rem;
 }
 .episode-card{
@@ -31,7 +31,7 @@
 .episode-card h1{
   margin-bottom: 1rem;
 }
-.episodesSectionGrid{
+.episodes-section-grid{
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 1.5rem;

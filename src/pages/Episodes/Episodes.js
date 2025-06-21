@@ -6,9 +6,9 @@ export default function Episodes() {
   
   
   return(
-    <section className='firstSection-episodes'>
+    <section className='first-section-episodes'>
       <h1>Эпизоды Мультфильма</h1>
-      <div className='episodesSectionGrid'>
+      <div className='episodes-section-grid'>
         {
           episodesData.map(episode => (
               <Link to={`${episode.id}`} key={episode.id}>

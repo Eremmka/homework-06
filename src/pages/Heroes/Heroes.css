@@ -1,4 +1,4 @@
-.firstSection-heroes{
+.first-section-heroes{
   height: 100%;
   width: 100%;
   background-color: black;
@@ -19,7 +19,7 @@
   width: 22rem;
   height: 25rem;
 }
-.heroesSectionGrid{
+.heroes-section-grid{
   display: grid;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: 1.5rem;
