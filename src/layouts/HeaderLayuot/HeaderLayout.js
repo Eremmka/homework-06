@@ -1,5 +1,6 @@
 import { Link, Outlet } from 'react-router-dom'
 import logo from '../../assets/Logo.png'
+import { AuthStatus } from '../../components/AuthStatus/AuthStatus'
 
 export function HeaderLayout() {
   return(
@@ -20,8 +21,13 @@ export function HeaderLayout() {
                 Локации
               </button>
             </Link>
+            <Link to='/login'><button>
+              Войти
+              </button>
+            </Link>
         </ul>
       </header>
+      <AuthStatus />
       <Outlet />
     </>
   )
