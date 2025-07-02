@@ -4,9 +4,10 @@ import episodesData from '../../data/episode.json';
 import heroesData from '../../data/characters.json';
 import locationsData from '../../data/location.json';
 
+
+
 export default function InfoComponent({ category }) {
   const { id } = useParams();
-  
   const contentData = (() => {
     switch(category) {
       case 'episodes':
@@ -31,6 +32,7 @@ export default function InfoComponent({ category }) {
   }
 
   return (
+    
     <div className="info-component">
       <div className="info-modal-window__infoCard">
         <h1>{contentData.name}</h1>

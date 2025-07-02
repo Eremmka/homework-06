@@ -1,26 +1,56 @@
-import './Locations.css'
-import locationsData from '../../data/location.json'
-import { Link } from 'react-router-dom'
+import './Locations.css';
+import { useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import useSearchInfo from '../../hooks/useSearchInfo/useSearchInfo';
+import LoadingComponent from '../../components/LoadingComponent/LoadingComponent'
 
-export default function Episodes() {
+export default function Locations() {
+  const observer = useRef();
+  const { 
+    data: locationsData = [],
+    loading,
+    error,
+    hasMore
+  } = useSearchInfo('https://rickandmortyapi.com/api/location');
   
-  
-  return(
+  const lastNodeRef = useCallback((node) => {
+    if (loading) return;
+    if (observer.current) observer.current.disconnect();
+    
+    observer.current = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && hasMore) {
+        
+      }
+    });
+    
+    if (node) observer.current.observe(node);
+  }, [loading, hasMore]);
+
+  if (error) {
+    return <div>Error loading data</div>;
+  }
+  console.log(loading)
+  return (
     <section className='first-section-locations'>
       <h1>Локации Мультфильма</h1>
       <div className='locations-section-grid'>
-        {
-          locationsData.map(location => (
-              <Link to={`${location.id}`} key={location.id}>
-                <div className="locations-card">
-                  <h1>Локация: {location.id}</h1>
-                  <h2>Название эпизода: {location.name}</h2>
-                </div>
-              </Link>
-            )
-          )
-        }
+        {locationsData.map((location, index) => (
+          <Link to={`${location.id}`} key={location.id}>
+            {locationsData.length - 20 === index + 1 ? (
+              <div ref={lastNodeRef} className='locations-card'>
+                <h4>Номер локации: {location.id}</h4>
+                {location.name}
+              </div>
+            ) : (
+              <div className='locations-card'>
+                <h4>Номер локации: {location.id}</h4>
+                {location.name}
+              </div>
+            )}
+          </Link>
+        ))}
       </div>
+      {loading && <LoadingComponent/>}
     </section>
-  )
+  );
 }

@@ -1,6 +1,7 @@
 import { Link, Outlet } from 'react-router-dom'
 import logo from '../../assets/Logo.png'
 import { AuthStatus } from '../../components/AuthStatus/AuthStatus'
+import { Suspense } from 'react'
 
 export function HeaderLayout() {
   return(
@@ -27,8 +28,15 @@ export function HeaderLayout() {
             </Link>
         </ul>
       </header>
-      <AuthStatus />
-      <Outlet />
+      <Suspense fallback={<h4 style={{
+        display:'flex',
+        justifyContent:'center'
+      }}>
+        Loading...</h4>
+      }>
+        <AuthStatus />
+        <Outlet/>
+      </Suspense>
     </>
   )
 }

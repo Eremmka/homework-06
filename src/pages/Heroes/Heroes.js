@@ -1,29 +1,57 @@
-import './Heroes.css'
-import heroesData from '../../data/characters.json'
-import { Link } from 'react-router-dom'
+import './Heroes.css';
+import { useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import useSearchInfo from '../../hooks/useSearchInfo/useSearchInfo';
+import LoadingComponent from '../../components/LoadingComponent/LoadingComponent'
 
-export default function Heroes() {
-  const handleClick = () => {
-    <div>
-      
-    </div>
+export default function Locations() {
+  const observer = useRef();
+  const { 
+    data: heroesData = [],
+    loading,
+    error,
+    hasMore
+  } = useSearchInfo('https://rickandmortyapi.com/api/character');
+  
+  const lastNodeRef = useCallback((node) => {
+    if (loading) return;
+    if (observer.current) observer.current.disconnect();
+    
+    observer.current = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && hasMore) {
+      }
+    });
+    
+    if (node) observer.current.observe(node);
+  }, [loading, hasMore]);
+
+  if (error) {
+    return <div>Error loading data</div>;
   }
-  return(
-    <section className="first-section-heroes">
-      <h1>Герои Мультфильма</h1>
+
+  return (
+    <section className='first-section-heroes'>
+      {loading && <div>Loading...</div>}
+      <h1>Локации Мультфильма</h1>
       <div className='heroes-section-grid'>
-        {
-          heroesData.map(hero => (
-            <Link to={`${hero.id}`} key={hero.id}>
-              <div className="hero-card" onClick={handleClick}>
-                <img src={hero.image} alt='hero_img'/>
-                <h3>Имя: {hero.name}</h3>
+        {heroesData.map((hero, index) => (
+          <Link to={`${hero.id}`} key={hero.id}>
+            {heroesData.length - 20 === index + 1 ? (
+              <div ref={lastNodeRef} className='hero-card'>
+                {hero.name}
+                <img src={hero.image} alt='heroImage' />
               </div>
-            </Link>
-            )
-          )
-        }
+            ) : (
+              <div className='hero-card'>
+                {hero.name}
+                <img src={hero.image} alt='heroImage' />
+              </div>
+            )}
+          </Link>
+        ))}
       </div>
+      {loading && <LoadingComponent/>}
     </section>
-  )
+    
+  );
 }
