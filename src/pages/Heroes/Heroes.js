@@ -32,7 +32,7 @@ export default function Locations() {
   return (
     <section className='first-section-heroes'>
       {loading && <div>Loading...</div>}
-      <h1>Локации Мультфильма</h1>
+      <h1>Герои Мультфильма</h1>
       <div className='heroes-section-grid'>
         {heroesData.map((hero, index) => (
           <Link to={`${hero.id}`} key={hero.id}>

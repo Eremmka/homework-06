@@ -31,7 +31,7 @@ export default function Locations() {
 
   return (
     <section className='first-section-episodes'>
-      <h1>Локации Мультфильма</h1>
+      <h1>Эпизоды Мультфильма</h1>
       <div className='episodes-section-grid'>
         {episodesData.map((episode, index) => (
           <Link to={`${episode.id}`} key={episode.id}>
